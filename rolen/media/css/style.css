@@ -11,6 +11,10 @@ ol, ul {
   padding: 0;
   list-style: none;
 }
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+}
 a {
   color: #fff;
   text-decoration: none;
@@ -26,19 +30,48 @@ header, nav, time, footer {
   height: 90%;
 }
 #header h1 {
-  font-size: 30px;
+  font-size: 300%;
   text-align: center;
+  margin-top: 20%;
 }
 #header h1 span {
   display: block;
-  font-size: 20px;
+  font-size: 50%;
 }
-#log {
+#header nav {
+  text-align: right;
+  width:  70%;
+  margin: 10% 30% 0 0;
+}
+#main {
   position: absolute;
   top: 0;
   left: 25%;
   width: 75%;
   height: 90%;
+}
+#log {
+  margin: 10% 10% 10% 20%;
+  height: 80%;
+  width: 70%;
+}
+#log li {
+  width: 100%;
+}
+#log li time {
+  float: left;
+  width: 20%;
+  margin-right: 10%;
+  font-size: 250%;
+  text-align: right;
+}
+#log li time span {
+  display: block;
+  font-size: 50%;
+}
+#log li section {
+  float: left;
+  width: 70%;
 }
 #footer {
   position: absolute;
