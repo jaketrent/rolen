@@ -1,0 +1,75 @@
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background: #282727;
+  color: #fff;
+  font-size: 100%;
+}
+ol, ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+a {
+  color: #fff;
+  text-decoration: none;
+}
+header, nav, time, footer {
+  display: block;
+}
+#header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 25%;
+  height: 90%;
+}
+#header h1 {
+  font-size: 30px;
+  text-align: center;
+}
+#header h1 span {
+  display: block;
+  font-size: 20px;
+}
+#log {
+  position: absolute;
+  top: 0;
+  left: 25%;
+  width: 75%;
+  height: 90%;
+}
+#footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 10%;
+  width: 100%;
+}
+#footer nav,
+#footer nav ul {
+  height: 100%;
+}
+#footer nav li {
+  display: block;
+  float: left;
+  width: 25%;
+  height: 100%;
+  text-align: center;
+}
+#footer nav li a {
+  color: #000;
+}
+#footer nav li.comp {
+  background: purple;
+}
+#footer nav li.prob {
+  background: greenyellow;
+}
+#footer nav li.engin  {
+  background: orange;
+}
+#footer nav li.collab  {
+  background: yellow;
+}
