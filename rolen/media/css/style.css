@@ -93,12 +93,13 @@ header, nav, time, footer {
 #main {
   float: left;
   width: 75%;
-  padding-bottom: 50px;
+  position: relative;
 }
 #log {
-  margin: 10% 10% 10% 0%;
-  height: 80%;
-  width: 90%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 #log li {
   width: 100%;
@@ -129,7 +130,6 @@ header, nav, time, footer {
 }
 #log li section {
   float: left;
-  margin-top: 4px;
   width: 70%;
 }
 #log li.comp h2 {
