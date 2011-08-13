@@ -97,13 +97,15 @@ header, nav, time, footer {
 }
 #log {
   position: absolute;
-  top: 0;
+  top: -1000px;
   left: 0;
   width: 100%;
+  background: url(../img/ticks.png) 0 0 repeat-y transparent;
+  padding: 1000px 0;
 }
 #log li {
-  width: 100%;
-  margin-top: 25px;
+  width: 87%;
+  margin: 25px 0 0 13%;
   overflow: auto;
 }
 #log li.first {
