@@ -1,4 +1,4 @@
-define(["jquery", "firmin-1.0.0-min"], function($, Firmin) {
+define(["jquery"], function($) {
 
   var currentIndex = 0;
 
