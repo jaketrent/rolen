@@ -2,30 +2,36 @@ define(['backbone', 'log/EntryView', 'log/Log'], function (Backbone, EntryView, 
   return Backbone.View.extend({
     el: $('#log'),
     initialize: function () {
-      _.bindAll(this, 'render');
+      _.bindAll(this, 'render', 'appendEntry');
 
       this.collection = new Log();
+      this.collection.bind('add', this.appendEntry);
+
+      $(this.el).html("");
       this.collection.reset([
         {
           cat: 'engin',
           isFirst: true,
           startDate: '2011-07-01',
           dispStartDate: 'July',
+          dispEndDate: 'Aug',
           title: 'Corus Something',
           desc: 'This is the thing that keeps happening here and there.'
         }
       ]);
       this.render();
     },
-    render: function () {
-      var renderedEntries = '';
-      _(this.collection.models).each(function (entry) {
-        var entryView = new EntryView({
+    appendEntry: function(entry){
+      var entryView = new EntryView({
           model: entry
         });
-        renderedEntries += entryView.render().el;
-      });
-      $(this.el).html(renderedEntries);
+      $(this.el).append(entryView.render().el);
+    },
+    render: function () {
+      _(this.collection.models).each(function (entry) {
+        this.appendEntry(entry);
+      }, this);
+      return this;
     }
   });
 });

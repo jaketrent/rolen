@@ -1,6 +1,9 @@
-<li class="first comp">
+<li class="{{#if isFirst}}first{{/if}} {{ cat }}">
   <time datetime="{{ startDate }}">
-    {{ dispStartDate }} <span>- {{ dispEndDate }}</span>
+    {{ dispStartDate }}
+    {{#if dispEndDate}}
+      <span>- {{ dispEndDate }}</span>
+    {{/if}}
   </time>
   <section>
     <header>
