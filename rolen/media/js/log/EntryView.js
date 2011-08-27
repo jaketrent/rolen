@@ -2,13 +2,12 @@ define(["backbone", "tmpl!log/EntryView", "lib/handlebars"], function (Backbone,
   return Backbone.View.extend({
     tagName: 'li', // name of tag to be created
     // `ItemView`s now respond to two clickable actions for each `Item`: swap and delete.
-    /*events: {
-      'click span.swap':  'swap',
-      'click span.delete': 'remove'
-    },*/
+    events: {
+      'click': 'scroll'
+    },
     // `initialize()` now binds model change/removal to the corresponding handlers below.
     initialize: function(){
-      _.bindAll(this, 'render'); // every function that uses 'this' as the current object should be in here
+      _.bindAll(this, 'render', 'scroll'); // every function that uses 'this' as the current object should be in here
 
       this.model.bind('change', this.render);
     },
@@ -16,6 +15,11 @@ define(["backbone", "tmpl!log/EntryView", "lib/handlebars"], function (Backbone,
     render: function(){
       $(this.el).html(entryViewTmpl(this.model.toJSON()));
       return this; // for chainable calls, like .render().el
+    },
+    scroll: function () {
+      $("#log").animate({
+        top: -1 * $(this.el).position().top
+      });
     }
   });
 });
