@@ -17,6 +17,21 @@ define(['backbone', 'log/EntryView', 'log/Log'], function (Backbone, EntryView, 
           dispEndDate: 'Aug',
           title: 'Corus Something',
           desc: 'This is the thing that keeps happening here and there.'
+        },{
+          cat: 'comp',
+          isFirst: false,
+          startDate: '2011-07-04',
+          dispStartDate: 'July',
+          dispEndDate: 'Sept',
+          title: 'Something',
+          desc: 'This is the thing that keeps happening This is the thing that keeps happening This is the thing that keeps happening here and there.'
+        },{
+          cat: 'collab',
+          isFirst: true,
+          startDate: '2011-10-03',
+          dispStartDate: 'Oct',
+          title: 'The Future',
+          desc: 'This is the thing that keeps happening here and there.'
         }
       ]);
       this.render();
