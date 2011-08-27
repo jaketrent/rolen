@@ -17,7 +17,7 @@ define(["backbone", "tmpl!log/EntryView", "lib/handlebars"], function (Backbone,
       return this; // for chainable calls, like .render().el
     },
     scroll: function () {
-      $("#log").animate({
+      $(this.el).parent("ul").animate({
         top: -1 * $(this.el).position().top
       });
     }

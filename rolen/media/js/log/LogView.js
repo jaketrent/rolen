@@ -1,4 +1,4 @@
-define(['backbone', 'log/EntryView', 'log/Log'], function (Backbone, EntryView, Log) {
+define(['backbone', 'log/EntryView', 'log/Log', 'lib/jquery.mousewheel'], function (Backbone, EntryView, Log) {
   return Backbone.View.extend({
     el: $('#log'),
     initialize: function () {
@@ -6,6 +6,13 @@ define(['backbone', 'log/EntryView', 'log/Log'], function (Backbone, EntryView, 
 
       this.collection = new Log();
       this.collection.bind('add', this.appendEntry);
+
+      $(this.el).bind('mousewheel', function(event, delta) {
+        var top = (delta > 0 ? "+" : "-") + "=" + 35 + "px";
+
+        console.log(top);
+        $(this).css({ "top": top });
+      });
 
       $(this.el).html("");
       this.collection.reset([
