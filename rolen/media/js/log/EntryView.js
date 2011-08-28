@@ -1,4 +1,4 @@
-define(["backbone", "tmpl!log/EntryView", "lib/handlebars"], function (Backbone, entryViewTmpl) {
+define(["backbone", "log/handlebars-ext", "tmpl!log/EntryView", "lib/handlebars"], function (Backbone, HandleBarsExt, entryViewTmpl) {
   return Backbone.View.extend({
     tagName: 'li', // name of tag to be created
     // `ItemView`s now respond to two clickable actions for each `Item`: swap and delete.

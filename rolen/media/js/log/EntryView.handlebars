@@ -1,9 +1,6 @@
 <li class="{{#if isFirst}}first{{/if}} {{ cat }}">
   <time datetime="{{ startDate }}">
-    {{ dispStartDate }}
-    {{#if dispEndDate}}
-      <span>- {{ dispEndDate }}</span>
-    {{/if}}
+    {{displayDates startDate endDate}}
   </time>
   <section>
     <header>

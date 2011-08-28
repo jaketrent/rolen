@@ -104,8 +104,8 @@ header, nav, time, footer {
   padding: 1000px 0;
 }
 #log li {
-  width: 87%;
-  margin: 25px 0 0 13%;
+  width: 94%;
+  margin: 25px 0 0 6%;
   overflow: auto;
   cursor: pointer;
 }

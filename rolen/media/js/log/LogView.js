@@ -8,10 +8,7 @@ define(['backbone', 'log/EntryView', 'log/Log', 'lib/jquery.mousewheel'], functi
       this.collection.bind('add', this.appendEntry);
 
       $(this.el).bind('mousewheel', function(event, delta) {
-        var top = (delta > 0 ? "+" : "-") + "=" + 35 + "px";
-
-        console.log(top);
-        $(this).css({ "top": top });
+        $(this).css({ "top": (delta > 0 ? "+" : "-") + "=35px" });
       });
 
       $(this.el).html("");
