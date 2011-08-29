@@ -13,7 +13,7 @@ define(["backbone", "log/handlebars-ext", "tmpl!log/EntryView", "lib/handlebars"
     },
     // `render()` now includes two extra `span`s corresponding to the actions swap and delete.
     render: function(){
-      $(this.el).html(entryViewTmpl(this.model.toJSON()));
+      this.el = entryViewTmpl(this.model.toJSON());
       return this; // for chainable calls, like .render().el
     },
     scroll: function () {

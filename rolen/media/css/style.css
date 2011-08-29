@@ -148,6 +148,9 @@ footer nav li {
   text-transform: uppercase;
   padding: 0 5% 0 5%;
 }
+#footer nav li.active a {
+  font-weight: bold;
+}
 #footer nav a.comp {
   background: purple;
 }
