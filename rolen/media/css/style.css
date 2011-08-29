@@ -61,34 +61,8 @@ header, nav, time, footer {
   font-size: 20px;
   text-transform: uppercase;
 }
-#header nav ul {
-  margin-top: 30%;
-  position: relative;
-  overflow: auto;
-}
-#header nav li {
-  position: absolute;
-}
-#header nav li.arrow {
-  font-size: 30px;
-  -moz-transform: rotate(90deg);
-  -webkit-transform: rotate(90deg);
-  transform: rotate(90deg);
-}
-#header nav li#prev {
-  top: 0;
-  right: 30%;
-}
-#header nav li#now {
-  top: 10%;
-  right: 10%;
-}
-#header nav li#next {
-  top: 20%;
-  right: 30%;
-}
-#header nav li a {
-  text-transform: uppercase;
+#category-summary {
+  margin: 15%;
 }
 #main {
   float: left;
