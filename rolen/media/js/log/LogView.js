@@ -17,23 +17,20 @@ define(['backbone', 'log/EntryView', 'log/Log', 'lib/jquery.mousewheel'], functi
           cat: 'engin',
           isFirst: true,
           startDate: '2011-07-01',
-          dispStartDate: 'July',
-          dispEndDate: 'Aug',
+          endDate: '2011-08-01',
           title: 'Corus Something',
           desc: 'This is the thing that keeps happening here and there.'
         },{
           cat: 'comp',
           isFirst: false,
           startDate: '2011-07-04',
-          dispStartDate: 'July',
-          dispEndDate: 'Sept',
+          endDate: '2011-09-04',
           title: 'Something',
           desc: 'This is the thing that keeps happening This is the thing that keeps happening This is the thing that keeps happening here and there.'
         },{
           cat: 'collab',
           isFirst: true,
           startDate: '2011-10-03',
-          dispStartDate: 'Oct',
           title: 'The Future',
           desc: 'This is the thing that keeps happening here and there.'
         }

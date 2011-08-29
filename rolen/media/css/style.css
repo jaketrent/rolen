@@ -169,19 +169,20 @@ footer nav li {
   line-height: 75px;
   font-size: 20px;
   display: block;
+  width: 90%;
   color: #000;
   text-transform: uppercase;
   padding: 0 5% 0 5%;
 }
-#footer nav li.comp {
+#footer nav a.comp {
   background: purple;
 }
-#footer nav li.prob {
+#footer nav a.prob {
   background: greenyellow;
 }
-#footer nav li.engin  {
+#footer nav a.engin  {
   background: orange;
 }
-#footer nav li.collab  {
+#footer nav a.collab  {
   background: yellow;
 }
