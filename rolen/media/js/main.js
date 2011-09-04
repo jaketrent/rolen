@@ -1,8 +1,9 @@
-require(["jquery", "log/LogView", 'log/CategoryListView', 'order!lib/underscore', 'order!lib/backbone'], function($, LogView, CategoryListView) {
+require(["jquery", "log/LogView", 'log/CategoryListView', 'lib/jquery.couch', 'order!lib/underscore', 'order!lib/backbone', 'order!lib/backbone-couchdb'], function($, LogView, CategoryListView) {
   require.ready(function () {
-    Backbone.sync = function(method, model, success, error){
-      success();
-    };
+
+    Backbone.couch_connector.config.db_name = "rolen";
+    Backbone.couch_connector.config.ddoc_name = "rolen";
+    Backbone.couch_connector.config.global_changes = false;
 
     new CategoryListView();
     new LogView();
