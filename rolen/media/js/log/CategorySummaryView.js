@@ -1,4 +1,4 @@
-define(['Backbone', 'tmpl!log/CategorySummaryView', 'lib/handlebars'], function (Backbone, categorySummaryViewTmpl) {
+define(['backbone', 'tmpl!log/CategorySummaryView', 'lib/handlebars'], function (Backbone, categorySummaryViewTmpl) {
   return Backbone.View.extend({
     el: $("#category-summary"),
     initialize: function () {
