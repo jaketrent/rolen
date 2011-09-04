@@ -1,4 +1,4 @@
-define(["backbone"], function (Backbone) {
+define(['order!lib/underscore', 'order!lib/backbone'], function () {
   return Backbone.Model.extend({
     defaults: {
       cat: "comp",

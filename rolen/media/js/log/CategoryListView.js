@@ -1,4 +1,4 @@
-define(['backbone', 'log/CategoryView', 'log/CategoryList'], function (Backbone, CategoryView, CategoryList) {
+define(['log/CategoryView', 'log/CategoryList', 'order!lib/underscore', 'order!lib/backbone'], function (CategoryView, CategoryList) {
   return Backbone.View.extend({
     el: $('#category-list'),
     initialize: function () {

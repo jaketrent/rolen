@@ -1,4 +1,4 @@
-define(['backbone', 'tmpl!log/CategoryView', 'log/CategorySummaryView', 'lib/handlebars'], function (Backbone, categoryViewTmpl, CategorySummaryView) {
+define(['tmpl!log/CategoryView', 'log/CategorySummaryView', 'lib/handlebars', 'order!lib/underscore', 'order!lib/backbone'], function (categoryViewTmpl, CategorySummaryView) {
   return Backbone.View.extend({
     tagName: 'li',
     events: {

@@ -1,4 +1,4 @@
-define(['backbone', 'log/EntryView', 'log/Log', 'lib/jquery.mousewheel'], function (Backbone, EntryView, Log) {
+define(['log/EntryView', 'log/Log', 'lib/jquery.mousewheel', 'order!lib/underscore', 'order!lib/backbone'], function (EntryView, Log) {
   return Backbone.View.extend({
     el: $('#log'),
     initialize: function () {
