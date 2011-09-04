@@ -1,4 +1,13 @@
-require(["jquery", "log/LogView", 'log/CategoryListView', 'lib/jquery.couch', 'order!lib/underscore', 'order!lib/backbone', 'order!lib/backbone-couchdb'], function($, LogView, CategoryListView) {
+require(
+  [ "jquery"
+  , "log/LogView"
+  , 'log/CategoryListView'
+  , 'lib/jquery.couch'
+  , 'lib/jquery.couchLogin'
+  , 'order!lib/underscore'
+  , 'order!lib/backbone'
+  , 'order!lib/backbone-couchdb'
+  ], function($, LogView, CategoryListView) {
   require.ready(function () {
 
     Backbone.couch_connector.config.db_name = "rolen";
@@ -7,6 +16,8 @@ require(["jquery", "log/LogView", 'log/CategoryListView', 'lib/jquery.couch', 'o
 
     new CategoryListView();
     new LogView();
+
+    $("#login").couchLogin();
 
   });
 });

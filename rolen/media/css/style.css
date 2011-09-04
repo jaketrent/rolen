@@ -49,6 +49,7 @@ header, nav, time, footer {
   float: left;
   width: 25%;
   padding-bottom: 50px;
+  position: relative;
 }
 #header h1 {
   font-family: 'MelbourneLight', Arial, sans-serif;
@@ -60,6 +61,11 @@ header, nav, time, footer {
   display: block;
   font-size: 20px;
   text-transform: uppercase;
+}
+#login {
+  top: 5px;
+  right: 5px;
+  position: absolute;
 }
 #category-summary {
   margin: 15%;
