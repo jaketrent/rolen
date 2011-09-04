@@ -1,0 +1,4 @@
+{
+  "name": "Rolen",
+  "description": "work log exhibiting a Requirejs, Backbone, Handlebars app deployed as a CouchApp with a CouchDb backend."
+}
