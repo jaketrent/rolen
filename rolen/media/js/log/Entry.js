@@ -1,6 +1,7 @@
 define(['order!lib/underscore', 'order!lib/backbone'], function () {
   return Backbone.Model.extend({
     defaults: {
+      _id: null,
       cat: "comp",
       isFirst: false,
       startDate: "2011-01-01",
