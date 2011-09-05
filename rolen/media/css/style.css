@@ -83,16 +83,16 @@ header, nav, time, footer {
   background: url(../img/ticks.png) 0 0 repeat-y transparent;
   padding: 1000px 0;
 }
-#log li {
+#log .entry {
   width: 94%;
   margin: 25px 0 0 6%;
   overflow: auto;
   cursor: pointer;
 }
-#log li.first {
+#log .entry.first {
   margin-top: 40px;
 }
-#log li time {
+#log .entry time {
   float: left;
   width: 20%;
   margin-right: 10%;
@@ -101,35 +101,41 @@ header, nav, time, footer {
   text-transform: uppercase;
   letter-spacing: 8px;
 }
-#log li time span {
+#log .entry time span {
   font-size: 18px;
   margin-right: 2%;
 }
-#log li.first time {
+#log .entry.first time {
   font-size: 52px;
 }
-#log li.first time span {
+#log .entry.first time span {
   display: block;
 }
-#log li section {
+#log .entry section {
   float: left;
   width: 70%;
 }
-#log li.comp h2 {
+#log .entry.comp h2 {
   color: purple;
 }
-#log li.prob h2 {
+#log .entry.prob h2 {
   color: greenyellow;
 }
-#log li.engin h2 {
+#log .entry.engin h2 {
   color: orange;
 }
-#log li.collab h2 {
+#log .entry.collab h2 {
   color: yellow;
 }
-#log li section p {
+#log .entry section p {
   font-size: 16px;
   width: 60%;
+}
+.entry ul {
+  list-style: square inside;
+}
+.entry li {
+  margin: 5px 0 0 0;
 }
 #footer {
   position: absolute;
