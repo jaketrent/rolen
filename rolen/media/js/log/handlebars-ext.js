@@ -1,4 +1,6 @@
-define(['lib/handlebars'], function(){
+define(['lib/handlebars', 'lib/showdown'], function(){
+
+  var converter = new Showdown.converter();
 
   function getMonthName(dateString) {
     var months = ['Jan', 'Feb', 'Mar', 'April', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
@@ -10,6 +12,10 @@ define(['lib/handlebars'], function(){
       (endDate === undefined ?
       "" :
       " <span>- " + getMonthName(endDate) + "</span>"));
+  });
+
+  Handlebars.registerHelper('markdown', function(text) {
+    return new Handlebars.SafeString(converter.makeHtml(text));
   });
 
 });
