@@ -133,6 +133,10 @@ header, nav, time, footer {
   section {
     float: left;
     width: 70%;
+    p {
+      font-size: 16px;
+      width: 60%;
+    }
   }
   &:hover .edit {
     display: block;
@@ -140,28 +144,24 @@ header, nav, time, footer {
       color: @engin;
     }
   }
-}
-#log .entry.comp h2 {
-  color: lighten(@comp, 20%);
-}
-#log .entry.prob h2 {
-  color: @prob;
-}
-#log .entry.engin h2 {
-  color: @engin;
-}
-#log .entry.collab h2 {
-  color: @engin;
-}
-#log .entry section p {
-  font-size: 16px;
-  width: 60%;
-}
-.entry ul {
-  list-style: square inside;
-}
-.entry li {
-  margin: 5px 0 0 0;
+  &.comp h2 {
+    color: lighten(@comp, 20%);
+  }
+  &.prob h2 {
+    color: @prob;
+  }
+  &.engin h2 {
+    color: @engin;
+  }
+  &.collab h2 {
+    color: @engin;
+  }
+  ul {
+    list-style: square inside;
+    li {
+      margin: 5px 0 0 0;
+    }
+  }
 }
 #footer {
   position: absolute;
