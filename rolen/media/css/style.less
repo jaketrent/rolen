@@ -1,3 +1,15 @@
+@bg: #282727;
+@text: #fff;
+@text-dark: #000;
+
+@comp: rgb(128, 0, 128);
+@prob: rgb(173, 255, 47);
+@engin: rgb(255, 165, 0);
+@collab: rgb(255, 255, 0);
+
+@fonts: 'MelbourneRegular', Arial, sans-serif;
+@fonts-light: 'MelbourneLight', Arial, sans-serif;
+
 @font-face {
   font-family: 'MelbourneBold';
   src: url('../type/melbourne_bold_basic-webfont.eot');
@@ -19,27 +31,30 @@
   font-weight: normal;
   font-style: normal;
 }
-body {
+
+.no-space() {
   margin: 0;
   padding: 0;
+}
+
+body {
+  .no-space;
   width: 100%;
-  background: #282727;
-  color: #fff;
+  background: @bg;
+  color: @text;
   font-size: 14px;
-  font-family: 'MelbourneRegular', Arial, sans-serif;
+  font-family: @fonts;
   overflow: hidden;
 }
 ol, ul {
-  margin: 0;
-  padding: 0;
+  .no-space;
   list-style: none;
 }
 h1, h2, h3, h4, h5, h6 {
-  margin: 0;
-  padding: 0;
+  .no-space;
 }
 a {
-  color: #fff;
+  color: @text;
   text-decoration: none;
 }
 header, nav, time, footer {
@@ -52,7 +67,7 @@ header, nav, time, footer {
   position: relative;
 }
 #header h1 {
-  font-family: 'MelbourneLight', Arial, sans-serif;
+  font-family: @fonts-light;
   font-size: 83px;
   text-align: center;
   margin-top: 20%;
@@ -95,13 +110,13 @@ header, nav, time, footer {
 #log .entry .edit {
   float: right;
   display: none;
-  color: #efefef;
+  color: darken(@text, 30%);
 }
 #log .entry:hover .edit {
   display: block;
 }
 #log .entry .edit:hover {
-  color: orange;
+  color: @engin;
 }
 #log .entry time {
   float: left;
@@ -127,16 +142,16 @@ header, nav, time, footer {
   width: 70%;
 }
 #log .entry.comp h2 {
-  color: purple;
+  color: lighten(@comp, 20%);
 }
 #log .entry.prob h2 {
-  color: greenyellow;
+  color: @prob;
 }
 #log .entry.engin h2 {
-  color: orange;
+  color: @engin;
 }
 #log .entry.collab h2 {
-  color: yellow;
+  color: @engin;
 }
 #log .entry section p {
   font-size: 16px;
@@ -167,7 +182,7 @@ footer nav li {
   font-size: 20px;
   display: block;
   width: 90%;
-  color: #000;
+  color: @text-dark;
   text-transform: uppercase;
   padding: 0 5% 0 5%;
 }
@@ -176,14 +191,14 @@ footer nav li {
   text-shadow: 0px 2px 3px #ede8ed;
 }
 #footer nav a.comp {
-  background: purple;
+  background: @comp;
 }
 #footer nav a.prob {
-  background: greenyellow;
+  background: @prob;
 }
 #footer nav a.engin  {
-  background: orange;
+  background: @engin;
 }
 #footer nav a.collab  {
-  background: yellow;
+  background: @collab;
 }
