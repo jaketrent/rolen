@@ -65,17 +65,17 @@ header, nav, time, footer {
   width: 25%;
   padding-bottom: 50px;
   position: relative;
-}
-#header h1 {
-  font-family: @fonts-light;
-  font-size: 83px;
-  text-align: center;
-  margin-top: 20%;
-}
-#header h1 span {
-  display: block;
-  font-size: 20px;
-  text-transform: uppercase;
+  h1 {
+    font-family: @fonts-light;
+    font-size: 83px;
+    text-align: center;
+    margin-top: 20%;
+    span {
+      display: block;
+      font-size: 20px;
+      text-transform: uppercase;
+    }
+  }
 }
 #login {
   top: 5px;
@@ -103,43 +103,43 @@ header, nav, time, footer {
   margin: 25px 0 0 6%;
   overflow: auto;
   cursor: pointer;
-}
-#log .entry.first {
-  margin-top: 40px;
-}
-#log .entry .edit {
-  float: right;
-  display: none;
-  color: darken(@text, 30%);
-}
-#log .entry:hover .edit {
-  display: block;
-}
-#log .entry .edit:hover {
-  color: @engin;
-}
-#log .entry time {
-  float: left;
-  width: 20%;
-  margin-right: 10%;
-  font-size: 18px;
-  text-align: right;
-  text-transform: uppercase;
-  letter-spacing: 8px;
-}
-#log .entry time span {
-  font-size: 18px;
-  margin-right: 2%;
-}
-#log .entry.first time {
-  font-size: 52px;
-}
-#log .entry.first time span {
-  display: block;
-}
-#log .entry section {
-  float: left;
-  width: 70%;
+  time {
+    float: left;
+    width: 20%;
+    margin-right: 10%;
+    font-size: 18px;
+    text-align: right;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    span {
+      font-size: 18px;
+      margin-right: 2%;
+    }
+  }
+  &.first {
+    margin-top: 40px;
+    time {
+      font-size: 52px;
+      span {
+        display: block;
+      }
+    }
+  }
+  .edit {
+    float: right;
+    display: none;
+    color: darken(@text, 30%);
+  }
+  section {
+    float: left;
+    width: 70%;
+  }
+  &:hover .edit {
+    display: block;
+    &:hover {
+      color: @engin;
+    }
+  }
 }
 #log .entry.comp h2 {
   color: lighten(@comp, 20%);
