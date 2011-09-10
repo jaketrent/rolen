@@ -4,7 +4,8 @@ define(['lib/handlebars', 'lib/showdown'], function(){
 
   function getMonthName(dateString) {
     var months = ['Jan', 'Feb', 'Mar', 'April', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
-    return months[new Date(Date.parse(dateString)).getMonth()];
+    var date = Date.parse(dateString);
+    return isNaN(date) ? dateString : months[new Date(date).getMonth()];
   }
 
   Handlebars.registerHelper('displayDates', function(startDate, endDate) {
