@@ -1,23 +1,27 @@
-define(['tmpl!log/CategoryView', 'log/CategorySummaryView', 'lib/handlebars', 'order!lib/underscore', 'order!lib/backbone'], function (categoryViewTmpl, CategorySummaryView) {
+define(['tmpl!log/CategoryView', 'lib/handlebars', 'order!lib/underscore', 'order!lib/backbone'], function (categoryViewTmpl) {
   return Backbone.View.extend({
     tagName: 'li',
     events: {
-      'click a': 'showSummary'
+      'click a': 'filter'
     },
     initialize: function () {
-      _.bindAll(this, 'render', 'showSummary');
+      _.bindAll(this, 'render', 'filter');
       this.model.bind('change', this.render);
     },
     render: function () {
       $(this.el).html(categoryViewTmpl(this.model.toJSON()));
       return this; 
     },
-    showSummary: function () {
-      new CategorySummaryView({
-        model: this.model
-      });
-      $("#category-list li").removeClass("active");
-      $(this.el).addClass("active");
+    filter: function () {
+      var $this = $(this.el);
+      if ($this.hasClass('active')) {
+        $("#category-list li").removeClass("active");
+        $("#log > li").show();
+      } else {
+        $this.addClass("active");
+        $("#log > li").hide();
+        $("#log > li[class ~= '" + this.model.get('code') + "']").show();
+      }
     }
   });
 });

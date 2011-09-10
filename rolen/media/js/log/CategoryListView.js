@@ -9,20 +9,16 @@ define(['log/CategoryView', 'log/CategoryList', 'order!lib/underscore', 'order!l
       this.collection.reset([
         {
           code: 'comp',
-          name: 'Competency &amp; Productivity',
-          progress: 'I\'ve gotten this far'
+          name: 'Competency &amp; Productivity'
         },{
           code: 'prob',
-          name: 'Organization &amp; Problem Solving',
-          progress: 'I\'ve gotten this far 2'
+          name: 'Organization &amp; Problem Solving'
         },{
           code: 'engin',
-          name: 'Engineering &amp; Excellence',
-          progress: 'I\'ve gotten this far 3'
+          name: 'Engineering &amp; Excellence'
         },{
           code: 'collab',
-          name: 'Collaboration',
-          progress: 'I\'ve gotten this far 4'
+          name: 'Collaboration'
         }
       ]);
       this.render();
