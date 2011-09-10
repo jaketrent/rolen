@@ -92,6 +92,17 @@ header, nav, time, footer {
 #log .entry.first {
   margin-top: 40px;
 }
+#log .entry .edit {
+  float: right;
+  display: none;
+  color: #efefef;
+}
+#log .entry:hover .edit {
+  display: block;
+}
+#log .entry .edit:hover {
+  color: orange;
+}
 #log .entry time {
   float: left;
   width: 20%;
