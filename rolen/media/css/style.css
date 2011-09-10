@@ -162,6 +162,8 @@ footer nav li {
 }
 #footer nav li.active a {
   font-weight: bold;
+  text-shadow: 0px 2px 3px #ede8ed;
+  filter: dropshadow(color=#ede8ed, offx=3, offy=3);
 }
 #footer nav a.comp {
   background: purple;
