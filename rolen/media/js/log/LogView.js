@@ -17,8 +17,8 @@ define(['log/EntryView', 'log/Log', 'lib/jquery.mousewheel', 'order!lib/undersco
     },
     appendEntry: function(entry){
       var entryView = new EntryView({
-          model: entry
-        });
+        model: entry
+      });
       $(this.el).append(entryView.render().el);
     },
     render: function () {

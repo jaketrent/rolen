@@ -6,22 +6,10 @@ define(['log/CategoryView', 'log/CategoryList', 'order!lib/underscore', 'order!l
 
       this.collection = new CategoryList();
       this.collection.bind('add', this.appendCategory);
-      this.collection.reset([
-        {
-          code: 'comp',
-          name: 'Competency &amp; Productivity'
-        },{
-          code: 'prob',
-          name: 'Organization &amp; Problem Solving'
-        },{
-          code: 'engin',
-          name: 'Engineering &amp; Excellence'
-        },{
-          code: 'collab',
-          name: 'Collaboration'
-        }
-      ]);
-      this.render();
+      this.collection.bind('change', this.render);
+      this.collection.bind('reset', this.render);
+
+      this.collection.fetch();
     },
     appendCategory: function(cat){
       var catView = new CategoryView({
@@ -30,6 +18,7 @@ define(['log/CategoryView', 'log/CategoryList', 'order!lib/underscore', 'order!l
       $(this.el).append(catView.render().el);
     },
     render: function () {
+      $(this.el).html("");
       _(this.collection.models).each(function (cat) {
         this.appendCategory(cat);
       }, this);
