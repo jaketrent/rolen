@@ -36,6 +36,11 @@
   margin: 0;
   padding: 0;
 }
+.rotate(@rotate: -90deg) {
+  -moz-transform: rotate(@rotate);
+  -webkit-transform: rotate(@rotate);
+  transform: rotate(@rotate);
+}
 
 body {
   .no-space;
@@ -207,6 +212,89 @@ header, nav, time, footer {
   }
 }
 
-@media screen and (max-width: 1279px) {
-  
+@media screen and (max-width: 1023px) {
+  #log {
+    background-size: 10%;
+  }
+  #footer {
+    nav li {
+      height: 50px;
+      a {
+        height: 50px;
+        line-height: 50px;
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 799px) {
+  #header {
+    h1 {
+      font-size: 50px;
+      span {
+        font-size: 14px;
+      }
+    }
+  }
+  #log .entry {
+    time {
+      letter-spacing: 4px;
+    }
+    &.first {
+      time {
+        font-size: 39px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 639px) {
+  #login {
+    .rotate;
+    top: 69px;
+    right: -55px;
+  }
+  #main {
+    width: 91%;
+  }
+  #log {
+    background-size: 5%;
+  }
+  #header {
+    position: absolute;
+    bottom: -10px;
+    right: -18px;
+    h1 {
+      .rotate;
+      margin: 0;
+      font-size: 40px;
+      letter-spacing: 17px;
+      span {
+        display: none;
+      }
+    }
+  }
+  #log .entry {
+    time {
+      letter-spacing: 2px;
+    }
+    &.first {
+      time {
+        font-size: 29px;
+      }
+    }
+    section {
+      p {
+        width: 100%;
+      }
+    }
+  }
+  #footer {
+    nav li {
+      a {
+        visibility: hidden;
+      }
+    }
+  }
 }
