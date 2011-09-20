@@ -1,0 +1,93 @@
+@bg: #282727;
+@text: #fff;
+@text-dark: #000;
+
+@comp: rgb(128, 0, 128);
+@prob: rgb(173, 255, 47);
+@engin: rgb(255, 165, 0);
+@collab: rgb(255, 255, 0);
+
+@fonts: 'MelbourneRegular', Arial, sans-serif;
+@fonts-light: 'MelbourneLight', Arial, sans-serif;
+
+@font-face {
+  font-family: 'MelbourneRegular';
+  src: url('../type/melbourne_regular_basic-webfont.eot');
+  src: url('../type/melbourne_regular_basic-webfont.eot?#iefix') format('embedded-opentype'), url('../type/melbourne_regular_basic-webfont.woff') format('woff'), url('../type/melbourne_regular_basic-webfont.ttf') format('truetype'), url('../type/melbourne_regular_basic-webfont.svg#MelbourneRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.no-space() {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  .no-space;
+  width: 100%;
+  background: @bg;
+  color: @text;
+  font-size: 14px;
+  font-family: @fonts;
+  overflow: hidden;
+}
+ol, ul {
+  .no-space;
+  list-style: none;
+}
+h1, h2, h3, h4, h5, h6 {
+  .no-space;
+}
+a {
+  color: @text;
+  text-decoration: none;
+}
+header, nav, time, footer {
+  display: block;
+}
+.container {
+  margin: 0 auto;
+  width: 400px;
+  max-width: 100%;
+  text-align: center;
+}
+#header {
+  margin-top: 200px;
+  font-family: @fonts;
+  font-size: 50px;
+  text-shadow: 1px 1px 2px #000;
+}
+#login {
+  margin-top: 20px;
+  font-family: @fonts;
+  font-size: 20px;
+  a {
+    color: @engin;
+    text-decoration: underline;
+  }
+  label {
+    display: block;
+    margin-top: 20px;
+  }
+  input {
+    display: block;
+    width: 100%;
+    background: #EFEFEF;
+    height: 40px;
+    font-size: 30px;
+    line-height: 30px;
+    margin-top: 10px;
+  }
+  input[type=submit] {
+    margin-bottom:30px;
+    text-shadow: 1px 1px 1px #fff;
+    width: auto;
+  }
+}
+
+@media screen and (max-width: 799px) {
+  #header {
+    margin-top: 30px;
+  }
+}

@@ -17,7 +17,11 @@ require(
     new CategoryListView();
     new LogView();
 
-    $("#login").couchLogin();
+    $("#login").couchLogin({
+      loggedOut : function(userCtx) {
+        window.location = "/rolen-login/_design/rolen/index.html";
+      }
+    });
 
   });
 });
