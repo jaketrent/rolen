@@ -1,9 +1,51 @@
 <div class="form">
   <h2>Add Entry</h2>
+
   <dl>
     <dt><label for="title">Title</label></dt>
     <dd>
-      <input type="text" id="title" value="{{ title }}" />
+      <input type="text" id="title" />
+    </dd>
+  </dl>
+  <dl>
+    <dt><label for="desc">Description</label></dt>
+    <dd>
+      <textarea id="desc"></textarea>
+    </dd>
+  </dl>
+  <dl>
+    <dt><label for="cat">Category</label></dt>
+    <dd>
+      <select id="cat">
+        <option value="comp">Competency &amp; Productivity</option>
+        <option value="prob">Organization &amp; Problem-Solving</option>
+        <option value="engin">Engineering Excellence</option>
+        <option value="collab">Collaboration</option>
+      </select>
+    </dd>
+  </dl>
+  <dl>
+    <dt><label for="startDate">Start Date</label></dt>
+    <dd>
+      <input type="text" id="startDate" />
+    </dd>
+  </dl>
+  <dl>
+    <dt><label for="endDate">End Date</label></dt>
+    <dd>
+      <input type="text" id="endDate" />
+    </dd>
+  </dl>
+  <dl>
+    <dt><label for="isFirst">First in Month</label></dt>
+    <dd>
+      <input type="checkbox" id="isFirst" />
+    </dd>
+  </dl>
+  <dl>
+    <dt><label for="star">Starred</label></dt>
+    <dd>
+      <input type="checkbox" id="star" />
     </dd>
   </dl>
   <input type="button" class="save" value="Save" />

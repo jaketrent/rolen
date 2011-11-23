@@ -92,7 +92,9 @@
 		  }
     	$("#pageslide-slide-wrap").animate({width: settings.width}, settings.duration);
 		  $("#pageslide-body-wrap").animate(direction, settings.duration, function() {
-        if ($(elm).attr("data-el") !== undefined) {
+        if ($(elm).attr('data-el') === 'none') {
+          settings.callback();
+        } else if ($(elm).attr("data-el") !== undefined) {
           var $psContent = $("#pageslide-content");
           $psContent.css("width",settings.width).html($($(elm).attr("data-el")).html());
 

@@ -18,16 +18,18 @@ require(
 
     new CategoryListView();
     new LogView();
-    var editView = new EditView();
 
     $(".edit-btn").pageSlide({
       width: "350px",
       direction: "left",
-      preprocessor: function () {
+      callback: function () {
+        var editView = new EditView();
         editView.setModel(new Entry());
         editView.render().el;
       }
     });
+
+
 
     $("#login").couchLogin({
       loggedOut : function(userCtx) {

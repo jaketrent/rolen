@@ -2,7 +2,7 @@ define(['log/EntryView', 'log/Log', 'lib/jquery.mousewheel', 'order!lib/undersco
   return Backbone.View.extend({
     el: $('#log'),
     initialize: function () {
-      _.bindAll(this, 'render', 'appendEntry');
+      _.bindAll(this, 'render', 'appendEntry', 'saveEntry');
 
       this.collection = new Log();
       this.collection.bind('add', this.appendEntry);
@@ -14,6 +14,16 @@ define(['log/EntryView', 'log/Log', 'lib/jquery.mousewheel', 'order!lib/undersco
       });
 
       this.collection.fetch();
+
+      Backbone.Events.bind('entrySaveSuccess', this.saveEntry);
+    },
+    saveEntry: function (entry) {
+      if (!_.detect(this.collection, function (collEntry) {
+        return entry.get('id') === collEntry.get('id');
+      })) {
+        this.collection.add(entry);
+        console.log('Added new entry to collection!');
+      }
     },
     appendEntry: function(entry){
       var entryView = new EntryView({
