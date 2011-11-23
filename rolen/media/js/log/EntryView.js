@@ -6,7 +6,7 @@ define(["log/handlebars-ext", "tmpl!log/EntryView", "lib/handlebars", 'order!lib
       'click': 'scroll'
     },
     // `initialize()` now binds model change/removal to the corresponding handlers below.
-    initialize: function(){
+    initialize: function() {
       _.bindAll(this, 'render', 'scroll'); // every function that uses 'this' as the current object should be in here
 
       this.model.bind('change', this.render);

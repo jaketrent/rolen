@@ -2,10 +2,10 @@
 @text: #fff;
 @text-dark: #000;
 
-@comp: rgb(128, 0, 128);
-@prob: rgb(173, 255, 47);
-@engin: rgb(255, 165, 0);
-@collab: rgb(255, 255, 0);
+@purple: rgb(128, 0, 128);
+@green: rgb(173, 255, 47);
+@orange: rgb(255, 165, 0);
+@yellow: rgb(255, 255, 0);
 
 @fonts: 'MelbourneRegular', Arial, sans-serif;
 @fonts-light: 'MelbourneLight', Arial, sans-serif;
@@ -150,20 +150,20 @@ header, nav, time, footer {
   &:hover .edit {
     display: block;
     &:hover {
-      color: @engin;
+      color: @orange;
     }
   }
   &.comp h2 {
-    color: lighten(@comp, 20%);
+    color: lighten(@purple, 20%);
   }
   &.prob h2 {
-    color: @prob;
+    color: @green;
   }
   &.engin h2 {
-    color: @engin;
+    color: @orange;
   }
   &.collab h2 {
-    color: @engin;
+    color: @orange;
   }
   ul {
     list-style: square inside;
@@ -193,21 +193,66 @@ header, nav, time, footer {
       text-transform: uppercase;
       padding: 0 5% 0 5%;
       &.comp {
-        background: @comp;
+        background: @purple;
       }
       &.prob {
-        background: @prob;
+        background: @green;
       }
       &.engin  {
-        background: @engin;
+        background: @orange;
       }
       &.collab  {
-        background: @collab;
+        background: @yellow;
       }
     }
     &.active a {
       font-weight: bold;
       text-shadow: 0px 2px 3px #ede8ed;
+    }
+  }
+}
+
+.edit-btn {
+  display: block;
+  position: fixed;
+  top: 30px;
+  right: 0;
+  height: 30px;
+  width: 30px;
+  text-align: center;
+  line-height: 24px;
+  font-size: 50px;
+  border-radius: 3px 0 0 3px;
+  background: @orange;
+  color: @text;
+  z-index: 1000;
+}
+#edit {
+  display: none;
+}
+#pageslide-slide-wrap {
+  background-color: rgba(0, 0, 0, .6);
+  #pageslide-content {
+    color: @text;
+    .form {
+      margin: 15px 35px;
+      h2 {
+        color: @orange;
+      }
+      dl {
+        dt, dd {
+          display: block;
+          width: 100%;
+          margin: 0
+        }
+        input, textarea, select {
+          width: 100%;
+        }
+      }
+      a {
+        font-size:12px;
+        padding:20px;
+      }
     }
   }
 }

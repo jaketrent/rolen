@@ -2,12 +2,14 @@ require(
   [ "jquery"
   , "log/LogView"
   , 'log/CategoryListView'
+  , 'log/EditView'
+  , 'log/Entry'
   , 'lib/jquery.couch'
   , 'lib/jquery.couchLogin'
   , 'order!lib/underscore'
   , 'order!lib/backbone'
   , 'order!lib/backbone-couchdb'
-  ], function($, LogView, CategoryListView) {
+  ], function($, LogView, CategoryListView, EditView, Entry) {
   require.ready(function () {
 
     Backbone.couch_connector.config.db_name = "rolen";
@@ -16,6 +18,16 @@ require(
 
     new CategoryListView();
     new LogView();
+    var editView = new EditView();
+
+    $(".edit-btn").pageSlide({
+      width: "350px",
+      direction: "left",
+      preprocessor: function () {
+        editView.setModel(new Entry());
+        editView.render().el;
+      }
+    });
 
     $("#login").couchLogin({
       loggedOut : function(userCtx) {
