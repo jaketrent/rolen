@@ -9,6 +9,7 @@
 		    modal:          false, // if true, the only way to close the pageslide is to define an explicit close class. 
 		    _identifier: $(this),
 		    preprocessor: function(){},
+		    initCallback: function(){},
 		    closeCallback: function(){}
 		}, options);
 		
@@ -75,6 +76,8 @@
       
       // mark the anchor!
       $(anchor).attr("rel","pageslide");
+
+      settings.initCallback();
       
 	  };
 	  

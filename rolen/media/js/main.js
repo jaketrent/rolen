@@ -18,17 +18,18 @@ require(
 
     new CategoryListView();
     var logView = new LogView();
-
     var editView = null;
+    
     $(".edit-btn").pageSlide({
       width: "350px",
       direction: "left",
+      initCallback: function () {
+        editView = new EditView();
+      },
       callback: function () {
         var entry = new Entry();
         logView.addEntry(entry);
-        editView = new EditView({
-          model: entry
-        });
+        editView.setModel(entry);
         editView.render().el;
       }
     });

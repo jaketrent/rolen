@@ -12,13 +12,16 @@ define(
       'mouseover .close': 'closeView'
     },
     initialize: function () {
-      _.bindAll(this, 'render', 'saveEntry', 'closeView');
+      _.bindAll(this, 'render', 'saveEntry', 'closeView', 'setModel');
     },
     render: function () {
       $(this.el).html(EditViewTmpl());
       $(this.el).pageSlide({ width:'350px' });
       Backbone.ModelBinding.bind(this);
       return this;
+    },
+    setModel: function (entry) {
+      this.model = entry;
     },
     saveEntry: function () {
       this.model.save({}, {
@@ -34,7 +37,7 @@ define(
       var self = this;
       $.fn.pageSlideClose({
         preprocessor: function(){
-          self.remove();
+          self.model = null;
         }
       });
     }
