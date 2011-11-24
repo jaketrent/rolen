@@ -27,13 +27,8 @@ require(
         editView = new EditView();
         editView.setModel(new Entry());
         editView.render().el;
-      },
-      closeCallback: function () {
-        editView.destroy();
       }
     });
-
-
 
     $("#login").couchLogin({
       loggedOut : function(userCtx) {

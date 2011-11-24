@@ -8,10 +8,11 @@ define(
   return Backbone.View.extend({
     el: '#pageslide-content',
     events: {
-      'click .save': 'save'
+      'mouseover .save': 'saveEntry',
+      'mouseover .close': 'closeView'
     },
     initialize: function () {
-      _.bindAll(this, 'render', 'setModel', 'save');
+      _.bindAll(this, 'render', 'setModel', 'saveEntry', 'closeView');
     },
     setModel: function (entry) {
       this.model = entry;
@@ -22,14 +23,14 @@ define(
       Backbone.ModelBinding.bind(this);
       return this;
     },
-    save: function () {
-      this.model.save({}, {
-        success: function (model, response) {
-          alert('Saved!');
-          Backbone.Events.trigger('entrySaveSuccess', model);
-        },
-        error: function (model, response) {
-          alert('Error!');
+    saveEntry: function () {
+      Backbone.Events.trigger('entrySave', this.model);
+    },
+    closeView: function () {
+      var self = this;
+      $.fn.pageSlideClose({
+        preprocessor: function(){
+          self.destroy();
         }
       });
     }

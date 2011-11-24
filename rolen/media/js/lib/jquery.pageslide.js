@@ -156,7 +156,7 @@
     _initialize(this);
     return this.each(function(){
       $(this).unbind("click").bind("click", function(){
-        settings.preprocessor()
+        settings.preprocessor();
       	function _checkA(elm) { for (; elm != null; elm = elm.parentElement) { if (elm.tagName == 'A') return true; } return false; }
     	  _openSlide(this);
     	  $("#pageslide-slide-wrap").unbind('click').click(function(e){ if(! _checkA(e.target)) return false; });	  
@@ -179,7 +179,8 @@
 		    duration:       "normal", // Accepts standard jQuery effects speeds (i.e. fast, normal or milliseconds)
 		    direction:      "left", // default direction is left.
 		    modal:          false, // if true, the only way to close the pageslide is to define an explicit close class. 
-		    _identifier: $(this)
+		    _identifier: $(this),
+        preprocessor: function(){}
 		}, options);
 		
 		function _hideBlanket() { if(settings.modal == true && $("#pageslide-blanket").is(":visible")) {
@@ -187,7 +188,7 @@
     }}
     
     function _overflowFixRemove(){($.browser.msie) ? $("body, html").css({overflowX:''}) : $("body").css({overflowX:''});}
-		
+		settings.preprocessor();
     _hideBlanket();
     direction = ($("#pageslide-slide-wrap").css("left") != "0px") ? {left: "0"} : {right: "0"};
 	  $("#pageslide-body-wrap").animate(direction, settings.duration);
