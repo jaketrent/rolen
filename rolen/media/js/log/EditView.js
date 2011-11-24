@@ -34,7 +34,7 @@ define(
       var self = this;
       $.fn.pageSlideClose({
         preprocessor: function(){
-          self.destroy();
+          self.remove();
         }
       });
     }
