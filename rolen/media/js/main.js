@@ -19,13 +19,17 @@ require(
     new CategoryListView();
     new LogView();
 
+    var editView = null;
     $(".edit-btn").pageSlide({
       width: "350px",
       direction: "left",
       callback: function () {
-        var editView = new EditView();
+        editView = new EditView();
         editView.setModel(new Entry());
         editView.render().el;
+      },
+      closeCallback: function () {
+        editView.destroy();
       }
     });
 

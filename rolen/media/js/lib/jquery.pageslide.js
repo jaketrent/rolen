@@ -8,7 +8,8 @@
 		    direction:      "left", // default direction is left.
 		    modal:          false, // if true, the only way to close the pageslide is to define an explicit close class. 
 		    _identifier: $(this),
-		    preprocessor: function(){}
+		    preprocessor: function(){},
+		    closeCallback: function(){}
 		}, options);
 		
 		// these are the minimum css requirements for the pageslide elements introduced in this plugin.
@@ -93,6 +94,13 @@
     	$("#pageslide-slide-wrap").animate({width: settings.width}, settings.duration);
 		  $("#pageslide-body-wrap").animate(direction, settings.duration, function() {
         if ($(elm).attr('data-el') === 'none') {
+          var $psContent = $("#pageslide-content");
+          $psContent.css("width",settings.width);
+          // add hook for a close button
+          $psContent.find('.pageslide-close').unbind('click').click(function(elm){
+            _closeSlide(elm);
+            $(this).find('pageslide-close').unbind('click');
+          });
           settings.callback();
         } else if ($(elm).attr("data-el") !== undefined) {
           var $psContent = $("#pageslide-content");
@@ -130,6 +138,7 @@
 		function _closeSlide(event) {
 		  if ($(event)[0].button != 2 && $("#pageslide-slide-wrap").css('width') != "0px") { // if not right click.
         $.fn.pageSlideClose(settings);
+        settings.closeCallback();
       }
 		};
 		
