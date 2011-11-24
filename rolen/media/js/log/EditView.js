@@ -12,10 +12,7 @@ define(
       'mouseover .close': 'closeView'
     },
     initialize: function () {
-      _.bindAll(this, 'render', 'setModel', 'saveEntry', 'closeView');
-    },
-    setModel: function (entry) {
-      this.model = entry;
+      _.bindAll(this, 'render', 'saveEntry', 'closeView');
     },
     render: function () {
       $(this.el).html(EditViewTmpl());
@@ -24,7 +21,14 @@ define(
       return this;
     },
     saveEntry: function () {
-      Backbone.Events.trigger('entrySave', this.model);
+      this.model.save({}, {
+        success: function (model, response) {
+          alert('Saved!');
+        },
+        error: function (model, response) {
+          alert('Error!');
+        }
+      });
     },
     closeView: function () {
       var self = this;

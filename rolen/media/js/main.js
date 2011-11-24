@@ -17,15 +17,18 @@ require(
     Backbone.couch_connector.config.global_changes = false;
 
     new CategoryListView();
-    new LogView();
+    var logView = new LogView();
 
     var editView = null;
     $(".edit-btn").pageSlide({
       width: "350px",
       direction: "left",
       callback: function () {
-        editView = new EditView();
-        editView.setModel(new Entry());
+        var entry = new Entry();
+        logView.addEntry(entry);
+        editView = new EditView({
+          model: entry
+        });
         editView.render().el;
       }
     });
