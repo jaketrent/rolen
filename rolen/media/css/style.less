@@ -2,6 +2,7 @@
 @text: #fff;
 @text-dark: #000;
 
+@gray: #ababab;
 @purple: rgb(128, 0, 128);
 @green: rgb(173, 255, 47);
 @orange: rgb(255, 165, 0);
@@ -258,13 +259,27 @@ header, nav, time, footer {
         input, textarea, select {
           width: 100%;
         }
+        dt input {
+          width: auto;
+          margin-left: 10px;
+        }
         textarea {
           height: 150px;
         }
       }
+      .btns {
+        overflow: auto;
+      }
       a {
-        font-size:12px;
-        padding:20px;
+        font-size: 12px;
+        padding: 5px 20px;
+        border-radius: 3px;
+        background: @gray;
+        float: right;
+        &.main {
+          background: @orange;
+          float: left;
+        }
       }
     }
   }
