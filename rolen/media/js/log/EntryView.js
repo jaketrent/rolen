@@ -8,7 +8,6 @@ define(["log/handlebars-ext", "tmpl!log/EntryView", "lib/handlebars", 'order!lib
     },
     initialize: function() {
       _.bindAll(this, 'render', 'scroll', 'editEntry');
-
       this.model.bind('change', this.render);
     },
     render: function(){

@@ -11,15 +11,10 @@ define(['order!lib/underscore', 'order!lib/backbone'], function () {
     },
     url: '/log',
     validate: function(attrs) {
-      if (attrs.title && attrs.title.length < 3) {
-        return "Must enter title";
-      }
-      if (attrs.desc && attrs.desc.length < 3) {
-        return "Must enter description";
-      }
-      if (attrs.startDate && attrs.startDate.length < 3) {
-        return "Must enter start date";
-      }
+      // todo: impl once I can do it right :)
+    },
+    isNew: function () {
+      return this.get('_id') === undefined;
     }
   });
 });

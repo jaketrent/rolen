@@ -28,9 +28,14 @@ define(
       this.model = entry;
     },
     saveEntry: function () {
+      var self = this;
+      var isNew = this.model.isNew();
       this.model.save({}, {
         success: function (model, response) {
-          alert('Saved!');
+          if (isNew) {
+            Backbone.Events.trigger('entryAddSuccess', self.model);
+          }
+          self.closeView();
         },
         error: function (model, response) {
           alert('Error!');

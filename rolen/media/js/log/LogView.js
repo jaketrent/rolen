@@ -5,8 +5,7 @@ define(['log/EntryView', 'log/Log', 'lib/jquery.mousewheel', 'order!lib/undersco
       _.bindAll(this, 'render', 'appendEntry', 'addEntry');
 
       this.collection = new Log();
-      this.collection.bind('add', this.appendEntry);
-      this.collection.bind('change', this.render);
+      this.collection.bind('add', this.render);
       this.collection.bind('reset', this.render);
 
       $(this.el).bind('mousewheel', function(event, delta) {
@@ -14,6 +13,7 @@ define(['log/EntryView', 'log/Log', 'lib/jquery.mousewheel', 'order!lib/undersco
       });
 
       this.collection.fetch();
+      Backbone.Events.bind('entryAddSuccess', this.addEntry);
     },
     addEntry: function (entry) {
       this.collection.add(entry);
