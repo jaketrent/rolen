@@ -1,25 +1,33 @@
 define(["log/handlebars-ext", "tmpl!log/EntryView", "lib/handlebars", 'order!lib/underscore', 'order!lib/backbone'], function (HandleBarsExt, entryViewTmpl) {
   return Backbone.View.extend({
-    tagName: 'li', // name of tag to be created
-    // `ItemView`s now respond to two clickable actions for each `Item`: swap and delete.
+    tagName: 'li',
+    className: 'entry',
     events: {
-      'click': 'scroll'
+      'click': 'scroll',
+      'dblclick': 'editEntry'
     },
-    // `initialize()` now binds model change/removal to the corresponding handlers below.
     initialize: function() {
-      _.bindAll(this, 'render', 'scroll'); // every function that uses 'this' as the current object should be in here
+      _.bindAll(this, 'render', 'scroll', 'editEntry');
 
       this.model.bind('change', this.render);
     },
-    // `render()` now includes two extra `span`s corresponding to the actions swap and delete.
     render: function(){
-      this.el = entryViewTmpl(this.model.toJSON());
-      return this; // for chainable calls, like .render().el
+      var $el = $(this.el);
+      $el.html(entryViewTmpl(this.model.toJSON()));
+      if (this.model.get('isFirst')) {
+        $el.addClass('first');
+      }
+      $el.addClass(this.model.get('cat'));
+      $el.attr('data-id', this.model.get('_id'));
+      return this;
     },
     scroll: function () {
       $(this.el).parent("ul").animate({
         top: -1 * $(this.el).position().top
       });
+    },
+    editEntry: function () {
+      Backbone.Events.trigger('entryEdit', this.model);
     }
   });
 });

@@ -11,12 +11,18 @@ define(
       'click .close': 'closeView'
     },
     initialize: function () {
-      _.bindAll(this, 'render', 'saveEntry', 'closeView', 'setModel');
+      _.bindAll(this, 'render', 'editEntry', 'saveEntry', 'showView', 'closeView', 'setModel');
+      Backbone.Events.bind('entryEdit', this.editEntry);
     },
     render: function () {
       $(this.el).html(EditViewTmpl());
       Backbone.ModelBinding.bind(this);
       return this;
+    },
+    editEntry: function (model) {
+      this.setModel(model);
+      this.render().el;
+      this.showView();
     },
     setModel: function (entry) {
       this.model = entry;
@@ -30,6 +36,16 @@ define(
           alert('Error!');
         }
       });
+    },
+    showView: function () {
+      if($("#pageslide-slide-wrap").width() != 0) {
+        return false;
+      }
+      var width = 350;
+      var direction = {left:'-' + width};
+      $("#pageslide-content").width(width);
+      $("#pageslide-slide-wrap").animate({width: width});
+      $("#pageslide-body-wrap").animate(direction);
     },
     closeView: function () {
       var direction = ($("#pageslide-slide-wrap").css("left") != "0px") ? {left: "0"} : {right: "0"};

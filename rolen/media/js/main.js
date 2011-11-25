@@ -25,20 +25,8 @@ require(
       $('#pageslide-body-wrap').width($('body').width());
     });
 
-    $('.pageslide-btn').click(function () {
-      if($("#pageslide-slide-wrap").width() != 0) {
-        return false;
-      }
-      var width = 350;
-      var direction = {left:'-' + width};
-      $("#pageslide-content").width(width);
-      $("#pageslide-slide-wrap").animate({width: width});
-      $("#pageslide-body-wrap").animate(direction);
-    });
-
     $('.add-btn').click(function () {
-      editView.setModel(new Entry());
-      editView.render().el;
+      Backbone.Events.trigger('entryEdit', new Entry());
     });
 
     $(document).keyup(function(e){
