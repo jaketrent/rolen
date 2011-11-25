@@ -19,7 +19,6 @@ require(
     new CategoryListView();
     var logView = new LogView();
     var editView = new EditView();
-    editView.render().el;
 
     $('#pageslide-body-wrap').width($('body').width());
     $(window).resize(function(){
@@ -37,40 +36,17 @@ require(
       $("#pageslide-body-wrap").animate(direction);
     });
 
-    $('.close').click(closePageSlider);
-
-    function closePageSlider(e) {
-      var direction = ($("#pageslide-slide-wrap").css("left") != "0px") ? {left: "0"} : {right: "0"};
-      $("#pageslide-body-wrap").animate(direction);
-      $("#pageslide-slide-wrap").animate({width: "0"}, function() {
-        $("#pageslide-content").css("width", "0px");
-        $('#pageslide-body-wrap, #pageslide-slide-wrap').css('left','');
-        $('#pageslide-body-wrap, #pageslide-slide-wrap').css('right','');
-      });
-    }
+    $('.add-btn').click(function () {
+      editView.setModel(new Entry());
+      editView.render().el;
+    });
 
     $(document).keyup(function(e){
       if (e.keyCode == 27) {
-        closePageSlider();
-      }
-    });
-/*
-
-    $('.edit-btn').pageSlide({
-      width: '350px',
-      direction: 'left',
-      initCallback: function () {
-        editView = new EditView();
-      },
-      callback: function () {
-        var entry = new Entry();
-        logView.addEntry(entry);
-        editView.setModel(entry);
-        editView.render().el;
+        editView.closeView();
       }
     });
 
-*/
     $('#login').couchLogin({
       loggedOut : function(userCtx) {
         window.location = '/rolen-login/_design/rolen/index.html';

@@ -7,17 +7,15 @@ define(
   return Backbone.View.extend({
     el: '#pageslide-content',
     events: {
-      'mouseover .save': 'saveEntry',
-      'mouseover .close': 'closeView'
+      'click .save': 'saveEntry',
+      'click .close': 'closeView'
     },
     initialize: function () {
       _.bindAll(this, 'render', 'saveEntry', 'closeView', 'setModel');
     },
     render: function () {
       $(this.el).html(EditViewTmpl());
-      if (this.model) {
-        Backbone.ModelBinding.bind(this);
-      }
+      Backbone.ModelBinding.bind(this);
       return this;
     },
     setModel: function (entry) {
@@ -34,7 +32,13 @@ define(
       });
     },
     closeView: function () {
-      // todo: impl or rm
+      var direction = ($("#pageslide-slide-wrap").css("left") != "0px") ? {left: "0"} : {right: "0"};
+      $("#pageslide-body-wrap").animate(direction);
+      $("#pageslide-slide-wrap").animate({width: "0"}, function() {
+        $("#pageslide-content").css("width", "0px");
+        $('#pageslide-body-wrap, #pageslide-slide-wrap').css('left','');
+        $('#pageslide-body-wrap, #pageslide-slide-wrap').css('right','');
+      });
     }
   });
 });
