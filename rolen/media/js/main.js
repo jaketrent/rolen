@@ -19,6 +19,7 @@ require(
     new CategoryListView();
     var logView = new LogView();
     var editView = new EditView();
+    editView.render().el;
 
     $('#pageslide-body-wrap').width($('body').width());
     $(window).resize(function(){

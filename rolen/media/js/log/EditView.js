@@ -15,8 +15,9 @@ define(
     },
     render: function () {
       $(this.el).html(EditViewTmpl());
-      $(this.el).pageSlide({ width:'350px' });
-      Backbone.ModelBinding.bind(this);
+      if (this.model) {
+        Backbone.ModelBinding.bind(this);
+      }
       return this;
     },
     setModel: function (entry) {
@@ -33,12 +34,7 @@ define(
       });
     },
     closeView: function () {
-      var self = this;
-      $.fn.pageSlideClose({
-        preprocessor: function(){
-          self.model = null;
-        }
-      });
+      // todo: impl or rm
     }
   });
 });
