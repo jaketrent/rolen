@@ -1,6 +1,5 @@
 define(
   [ 'tmpl!log/EditView'
-  , 'lib/jquery.pageslide'
   , 'order!lib/underscore'
   , 'order!lib/backbone'
   , 'order!lib/backbone.modelbinding.min'

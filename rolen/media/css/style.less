@@ -212,7 +212,7 @@ header, nav, time, footer {
   }
 }
 
-.edit-btn {
+.add-btn {
   display: block;
   position: fixed;
   top: 30px;
@@ -230,7 +230,17 @@ header, nav, time, footer {
 #edit {
   display: none;
 }
+#pageslide-body-wrap {
+  position: relative;
+  z-index: 0;
+}
 #pageslide-slide-wrap {
+  position: fixed;
+  width: 0;
+  top: 0;
+  right: 0;
+  height: 100%;
+  z-index: 999;
   background-color: rgba(0, 0, 0, .6);
   #pageslide-content {
     color: @text;

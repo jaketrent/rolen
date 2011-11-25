@@ -158,16 +158,39 @@
     // Initalize pageslide, if it hasn't already been done.
     _initialize(this);
     return this.each(function(){
-      $(this).unbind("click").bind("click", function(){
+      $(this).unbind("click").bind("click", function(e){
+
         settings.preprocessor();
-      	function _checkA(elm) { for (; elm != null; elm = elm.parentElement) { if (elm.tagName == 'A') return true; } return false; }
+
+        function _checkA(elm) {
+          for (; elm != null; elm = elm.parentElement) {
+            if (elm.tagName == 'A') {
+              return true;
+            }
+          }
+          return false;
+        }
+
     	  _openSlide(this);
-    	  $("#pageslide-slide-wrap").unbind('click').click(function(e){ if(! _checkA(e.target)) return false; });	  
+
+    	  $("#pageslide-slide-wrap").unbind('click').click(function(e) {
+          if(! _checkA(e.target)) {
+            return false;
+          }
+        });
     	  if (settings.modal != true) {
-  	      $(document).unbind('click').click(function(e) { if(! _checkA(e.target)){ $(document).unbind('click'); _closeSlide(e); return false } });
+  	      $(document).unbind('click').click(function(e) {
+            if(! _checkA(e.target)) {
+              $(document).unbind('click'); _closeSlide(e); return false
+            }
+          });
   	    }
-    	  return false;
-    	});	
+        if (_checkA(e.target)) {
+          return false;
+        } else {
+          return true;
+        }
+    	});
     });
     
   };
