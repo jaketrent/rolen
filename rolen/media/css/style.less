@@ -50,7 +50,6 @@ body {
   color: @text;
   font-size: 14px;
   font-family: @fonts;
-  overflow: hidden;
 }
 ol, ul {
   .no-space;
@@ -94,12 +93,9 @@ header, nav, time, footer {
   position: relative;
 }
 #log {
-  position: absolute;
-  top: -1000px;
-  left: 0;
   width: 100%;
   background: url(../img/ticks.png) 0 0 repeat-y transparent;
-  padding: 1000px 0;
+  padding: 0 0 150px 0;
 }
 #log .entry {
   position: relative;
@@ -174,7 +170,7 @@ header, nav, time, footer {
   }
 }
 #footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
